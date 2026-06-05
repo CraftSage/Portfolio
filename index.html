@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Aarav Narula — 14-year-old AI Coder, Prompt Engineering Pro, Vibe Coder. Building web apps in Python, PHP, Flutter & more.">
+    <title>Aarav Narula | Vibe Coder · AI Prompt Engineer · Web Dev</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='80' font-size='80'%3E%E2%9A%A1%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+
+    <!-- ============ SCROLL PROGRESS BAR ============ -->
+    <div class="scroll-progress" id="scrollProgress"></div>
+
+    <!-- ============ CUSTOM CURSOR ============ -->
+    <div class="cursor-dot" id="cursorDot"></div>
+    <div class="cursor-ring" id="cursorRing"></div>
+
+    <!-- ============ MATRIX BACKGROUND CANVAS ============ -->
+    <canvas id="matrixCanvas" class="matrix-bg" aria-hidden="true"></canvas>
+
+    <!-- ============ FLOATING CODE ICONS (SCROLL RAIN) ============ -->
+    <div class="floating-icons" id="floatingIcons" aria-hidden="true"></div>
+
+    <!-- ============ NAVBAR ============ -->
+    <nav class="navbar" id="navbar">
+        <a href="#home" class="nav-logo">
+            <span class="logo-bracket">&lt;</span>
+            <span class="logo-name">AARAV</span>
+            <span class="logo-bracket">/&gt;</span>
+        </a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#home" class="nav-link active">Home</a></li>
+            <li><a href="#about" class="nav-link">About</a></li>
+            <li><a href="#skills" class="nav-link">Skills</a></li>
+            <li><a href="#projects" class="nav-link">Projects</a></li>
+            <li><a href="#achievements" class="nav-link">Wins</a></li>
+            <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+        <div class="nav-actions">
+            <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                <i class="fa-solid fa-moon" id="themeIcon"></i>
+            </button>
+            <button class="menu-toggle" id="menuToggle" aria-label="Menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- ============ HERO ============ -->
+    <section id="home" class="hero">
+        <canvas id="heroCanvas" class="hero-canvas"></canvas>
+        <div class="hero-grid"></div>
+        <div class="hero-content">
+            <p class="hero-tag" data-edit="hero.title">// Young AI Coder & Vibe Developer</p>
+            <h1 class="hero-name">
+                Hi, I'm <span class="gradient-text" data-edit="hero.name">Aarav Narula</span>
+            </h1>
+            <div class="hero-rotating">
+                I'm a <span class="rotating-word" id="rotatingWord">Vibe Coder</span>
+                <span class="cursor-blink">|</span>
+            </div>
+            <p class="hero-intro" data-edit="hero.intro">14-year-old programmer obsessed with AI, neural networks, and shipping innovative solutions with vibes.</p>
+            <div class="hero-badges" id="heroBadges"></div>
+            <div class="hero-buttons">
+                <a href="#projects" class="btn btn-primary">
+                    <span>See My Work</span>
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+                <a href="#contact" class="btn btn-ghost">
+                    <i class="fa-solid fa-paper-plane"></i>
+                    <span>Contact Me</span>
+                </a>
+            </div>
+        </div>
+        <div class="scroll-hint">
+            <span>SCROLL</span>
+            <div class="scroll-line"></div>
+        </div>
+    </section>
+
+    <!-- ============ ABOUT ============ -->
+    <section id="about" class="section about">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-num">01</span>
+                <h2 class="section-title">About <span class="gradient-text">Me</span></h2>
+                <div class="section-line"></div>
+            </div>
+
+            <div class="about-grid">
+                <div class="about-text reveal">
+                    <h3 class="about-headline" data-edit="about.headline">I build, break, and ship things at 14.</h3>
+                    <p class="about-body" data-edit="about.body"></p>
+                    <div class="about-stats" id="aboutStats"></div>
+                </div>
+                <div class="about-highlights" id="aboutHighlights"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ SKILLS ============ -->
+    <section id="skills" class="section skills">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-num">02</span>
+                <h2 class="section-title">My <span class="gradient-text">Skills</span></h2>
+                <div class="section-line"></div>
+            </div>
+
+            <div class="skills-grid">
+                <div class="skill-block reveal">
+                    <h3 class="block-title">
+                        <i class="fa-solid fa-code"></i> Programming
+                    </h3>
+                    <div class="skill-bars" id="skillBars"></div>
+                </div>
+
+                <div class="skill-block reveal">
+                    <h3 class="block-title">
+                        <i class="fa-solid fa-wand-magic-sparkles"></i> AI Specializations
+                    </h3>
+                    <div class="specs-grid" id="specsGrid"></div>
+                </div>
+            </div>
+
+            <div class="tech-stack reveal">
+                <h3 class="block-title center">
+                    <i class="fa-solid fa-layer-group"></i> Tech Stack
+                </h3>
+                <div class="stack-marquee">
+                    <div class="stack-track" id="stackTrack"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ PROJECTS ============ -->
+    <section id="projects" class="section projects">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-num">03</span>
+                <h2 class="section-title">My <span class="gradient-text">Projects</span></h2>
+                <div class="section-line"></div>
+            </div>
+            <p class="section-subtitle">Live, shipped, and working in the real world.</p>
+
+            <div class="projects-grid" id="projectsGrid"></div>
+        </div>
+    </section>
+
+    <!-- ============ ACHIEVEMENTS ============ -->
+    <section id="achievements" class="section achievements">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-num">04</span>
+                <h2 class="section-title">My <span class="gradient-text">Wins</span></h2>
+                <div class="section-line"></div>
+            </div>
+
+            <div class="timeline" id="timeline"></div>
+        </div>
+    </section>
+
+    <!-- ============ CONTACT ============ -->
+    <section id="contact" class="section contact">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-num">05</span>
+                <h2 class="section-title">Get In <span class="gradient-text">Touch</span></h2>
+                <div class="section-line"></div>
+            </div>
+
+            <div class="contact-grid">
+                <div class="contact-info reveal">
+                    <h3 class="contact-headline">Let's build something <span class="gradient-text">amazing</span> together.</h3>
+                    <p class="contact-sub">I'm always open to AI projects, hackathons, or wild ideas. One click and your email opens with my address already filled in.</p>
+
+                    <div class="contact-cards" id="contactCards"></div>
+
+                    <a href="#" id="contactMailto" class="btn btn-mega">
+                        <i class="fa-solid fa-envelope-open-text"></i>
+                        <span>Open Email & Contact Me</span>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <div class="contact-visual reveal">
+                    <div class="terminal-box">
+                        <div class="terminal-header">
+                            <span class="dot red"></span>
+                            <span class="dot yellow"></span>
+                            <span class="dot green"></span>
+                            <span class="terminal-title">aarav@portfolio:~$</span>
+                        </div>
+                        <div class="terminal-body" id="terminalBody">
+                            <div class="term-line"><span class="term-prompt">$</span> whoami</div>
+                            <div class="term-line">aarav_narula</div>
+                            <div class="term-line"><span class="term-prompt">$</span> cat skills.txt</div>
+                            <div class="term-line">→ prompt engineering</div>
+                            <div class="term-line">→ python (flask/django/kivy)</div>
+                            <div class="term-line">→ php · javascript · flutter</div>
+                            <div class="term-line">→ vibe coding</div>
+                            <div class="term-line"><span class="term-prompt">$</span> echo "ready_to_collab"</div>
+                            <div class="term-line typing">ready_to_collab<span class="cursor-blink">_</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ FOOTER ============ -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <span class="logo-bracket">&lt;</span>
+                    <span class="logo-name">AARAV NARULA</span>
+                    <span class="logo-bracket">/&gt;</span>
+                    <p class="footer-tag">Built with vibes, AI, and a lot of caffeine-free 14-year-old energy.</p>
+                </div>
+                <div class="footer-socials" id="footerSocials"></div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; <span id="year"></span> Aarav Narula. All rights reserved.</p>
+                <p class="footer-secret">Psst — try <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>A</kbd> 👀</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ============ SCRIPTS ============ -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
